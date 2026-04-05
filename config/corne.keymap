@@ -131,14 +131,14 @@
 // ├────────┼────────┼────────┼────────┼────────┤                    ├────────┼────────┼────────┼────────┼────────┤
 // │ sk GUI │ sk ALT │ sk SFT │ sk CTL │        │                    │  PgDn  │   ←    │   ↓    │   →    │  Del   │
 // ├────────┼────────┼────────┼────────┼────────┤                    ├────────┼────────┼────────┼────────┼────────┤
-// │  Undo  │  Cut   │  Copy  │ Paste  │  Redo  │                    │  Tab   │ CpsWrd │ Enter  │  Ins   │        │
+// │  Undo  │  Cut   │  Copy  │ Paste  │  Redo  │                    │  Tab   │        │ Enter  │  Ins   │        │
 // └────────┴────────┴────────┼────────┼────────┼────────┐  ┌────────┼────────┼────────┼────────┴────────┴────────┘
 //                            │        │ >NAV<  │        │  │        │        │        │
 //                            └────────┴────────┴────────┘  └────────┴────────┴────────┘
             bindings = <
 &none    &kp ESC   &none     &kp LC(LS(TAB)) &kp LC(TAB) &none      &kp PG_UP &kp HOME  &kp UP    &kp END   &kp BSPC   &none
 &none    &sk LGUI  &sk LALT  &sk LSHFT &sk LCTRL &none              &kp PG_DN &kp LEFT  &kp DOWN  &kp RIGHT &kp DEL    &none
-&none    &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V) &kp LC(Y)         &kp TAB   &caps_word &kp RET  &kp INS   &none      &none
+&none    &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V) &kp LC(Y)         &kp TAB   &none      &kp RET  &kp INS   &none      &none
                              &trans    &trans    &trans             &trans    &trans    &trans
             >;
         };

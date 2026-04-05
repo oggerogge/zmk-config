@@ -27,30 +27,6 @@
 #define BT    6
 
 / {
-    macros {
-        sv_caret: sv_caret {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <30>;
-            tap-ms = <30>;
-            bindings = <&kp SV_CARET &kp SPACE>;
-        };
-        sv_grave: sv_grave {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <30>;
-            tap-ms = <30>;
-            bindings = <&kp SV_GRAVE &kp SPACE>;
-        };
-        sv_tilde: sv_tilde {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <30>;
-            tap-ms = <30>;
-            bindings = <&kp SV_TILDE &kp SPACE>;
-        };
-    };
-
     behaviors {
         sk {
             tapping-term-ms = <200>;
@@ -167,9 +143,9 @@
 //                            │        │        │        │  │        │        │        │
 //                            └────────┴────────┴────────┘  └────────┴────────┴────────┘
             bindings = <
-&none    &sv_caret &kp SV_LT &kp SV_GT &kp SV_MINUS &kp SV_PIPE    &kp SV_DLLR &kp SV_LBRC &kp SV_RBRC &kp SV_QMARK &kp SV_BSLH &none
+&none    &kp SV_CARET &kp SV_LT &kp SV_GT &kp SV_MINUS &kp SV_PIPE &kp SV_DLLR &kp SV_LBRC &kp SV_RBRC &kp SV_QMARK &kp SV_BSLH &none
 &none    &kp SV_EXCL &kp SV_PLUS &kp SV_FSLH &kp SV_EQUAL &kp SV_AMPS &kp SV_HASH &kp SV_LPAR &kp SV_RPAR &kp SV_SEMI &kp SV_DQT &none
-&none    &sv_tilde &kp SV_ASTRK &kp SV_LBKT &kp SV_RBKT &kp SV_PRCNT &kp SV_AT &kp SV_COLON &sv_grave &kp SV_SQT &kp SV_UNDER &none
+&none    &kp SV_TILDE &kp SV_ASTRK &kp SV_LBKT &kp SV_RBKT &kp SV_PRCNT &kp SV_AT &kp SV_COLON &kp SV_GRAVE &kp SV_SQT &kp SV_UNDER &none
                              &trans    &trans    &trans             &trans    &trans    &trans
             >;
         };

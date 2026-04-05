@@ -32,6 +32,12 @@
             tapping-term-ms = <200>;
             release-after-ms = <1000>;
         };
+        td_shift: tap_dance_shift {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&sk LSHFT>, <&caps_word>;
+        };
     };
 
     // Combos:
@@ -109,13 +115,13 @@
 // ├────────┼────────┼────────┼────────┼────────┤                    ├────────┼────────┼────────┼────────┼────────┤
 // │   Z    │   X    │   C    │   V    │   B    │                    │   N    │   M    │   ,    │   .    │   -    │
 // └────────┴────────┴────────┼────────┼────────┼────────┐  ┌────────┼────────┼────────┼────────┴────────┴────────┘
-//                            │ MOUSE  │  NAV   │  SPC   │  │ sk SFT │  SYM   │  NUM   │
+//                            │ MOUSE  │  NAV   │  SPC   │  │ SFT/CW │  SYM   │  NUM   │
 //                            └────────┴────────┴────────┘  └────────┴────────┴────────┘
             bindings = <
 &none    &kp Q     &kp W     &kp E     &kp R     &kp T              &kp Y     &kp U     &kp I     &kp O     &kp P      &none
 &none    &kp A     &kp S     &kp D     &kp F     &kp G              &kp H     &kp J     &kp K     &kp L     &kp SV_SQT &none
 &none    &kp Z     &kp X     &kp C     &kp V     &kp B              &kp N     &kp M     &kp COMMA &kp DOT   &kp SV_MINUS &none
-                             &mo MOUSE &mo NAV   &kp SPACE          &sk LSHFT &mo SYM   &mo NUM
+                             &mo MOUSE &mo NAV   &kp SPACE          &td_shift &mo SYM   &mo NUM
             >;
         };
 

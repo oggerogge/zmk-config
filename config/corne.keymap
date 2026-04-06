@@ -42,7 +42,7 @@
 
     // Combos:
     // ┌───────┬───────┬───────┬───────┬───────┐  ┌───────┬───────┬───────┬───────┬───────┐
-    // │    ╰─Esc─╯    │    ╰─Del─╯    │       │  │       │    ╰Bksp─╯ ╰──Å──╯    │       │
+    // │       │    ╰─Esc─╯ ╰─Del─╯ ╰─DelW─╯   │  │   ╰BkspW─╯ ╰─Bksp╯ ╰──Å──╯    │       │
     // ├───────┼───────┼───────┼───────┼───────┤  ├───────┼───────┼───────┼───────┼───────┤
     // │       │       │       │       │       │  │       │       │    ╰──Ä──╯    │       │
     // ├───────┼───────┼───────┼───────┼───────┤  ├───────┼───────┼───────┼───────┼───────┤
@@ -52,7 +52,7 @@
         compatible = "zmk,combos";
         combo_esc {
             timeout-ms = <50>;
-            key-positions = <1 2>;
+            key-positions = <2 3>;
             bindings = <&kp ESC>;
         };
         combo_bspc {
@@ -69,6 +69,16 @@
             timeout-ms = <50>;
             key-positions = <3 4>;
             bindings = <&kp DEL>;
+        };
+        combo_del_word {
+            timeout-ms = <50>;
+            key-positions = <4 5>;
+            bindings = <&kp LC(DEL)>;
+        };
+        combo_bspc_word {
+            timeout-ms = <50>;
+            key-positions = <6 7>;
+            bindings = <&kp LC(BSPC)>;
         };
         combo_enter {
             timeout-ms = <50>;
@@ -95,7 +105,7 @@
     conditional_layers {
         compatible = "zmk,conditional-layers";
         fn_layer {
-            if-layers = <NUM SYM>;
+            if-layers = <SYM NAV>;
             then-layer = <FN>;
         };
         bt_layer {
@@ -127,18 +137,18 @@
 
         nav_layer {
 // ┌────────┬────────┬────────┬────────┬────────┐                    ┌────────┬────────┬────────┬────────┬────────┐
-// │  Esc   │        │ PrvTab │ NxtTab │        │                    │  PgUp  │  Home  │   ↑    │  End   │  Bksp  │
+// │        │        │ PrvTab │ NxtTab │        │                    │  PgUp  │  Home  │   ↑    │  End   │        │
 // ├────────┼────────┼────────┼────────┼────────┤                    ├────────┼────────┼────────┼────────┼────────┤
-// │ sk GUI │ sk ALT │ sk SFT │ sk CTL │        │                    │  PgDn  │   ←    │   ↓    │   →    │  Del   │
+// │ sk GUI │ sk ALT │ sk SFT │ sk CTL │        │                    │  PgDn  │   ←    │   ↓    │   →    │        │
 // ├────────┼────────┼────────┼────────┼────────┤                    ├────────┼────────┼────────┼────────┼────────┤
-// │  Undo  │  Cut   │  Copy  │ Paste  │  Redo  │                    │  Tab   │        │ Enter  │  Ins   │        │
+// │  Undo  │  Cut   │  Copy  │ Paste  │  Redo  │                    │  Tab   │ Enter  │ Enter  │  Ins   │        │
 // └────────┴────────┴────────┼────────┼────────┼────────┐  ┌────────┼────────┼────────┼────────┴────────┴────────┘
 //                            │        │ >NAV<  │        │  │        │        │        │
 //                            └────────┴────────┴────────┘  └────────┴────────┴────────┘
             bindings = <
-&none    &kp ESC   &none     &kp LC(LS(TAB)) &kp LC(TAB) &none      &kp PG_UP &kp HOME  &kp UP    &kp END   &kp BSPC   &none
-&none    &sk LGUI  &sk LALT  &sk LSHFT &sk LCTRL &none              &kp PG_DN &kp LEFT  &kp DOWN  &kp RIGHT &kp DEL    &none
-&none    &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V) &kp LC(Y)         &kp TAB   &none      &kp RET  &kp INS   &none      &none
+&none    &none     &none     &kp LC(LS(TAB)) &kp LC(TAB) &none      &kp PG_UP &kp HOME  &kp UP    &kp END   &none      &none
+&none    &sk LGUI  &sk LALT  &sk LSHFT &sk LCTRL &none              &kp PG_DN &kp LEFT  &kp DOWN  &kp RIGHT &none      &none
+&none    &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V) &kp LC(Y)         &kp TAB   &kp RET   &kp RET  &kp INS   &none      &none
                              &trans    &trans    &trans             &trans    &trans    &trans
             >;
         };
@@ -185,14 +195,14 @@
 // ├────────┼────────┼────────┼────────┼────────┤                    ├────────┼────────┼────────┼────────┼────────┤
 // │ sk GUI │ sk ALT │ sk SFT │ sk CTL │        │                    │  F11   │  F12   │ PrtSc  │        │        │
 // ├────────┼────────┼────────┼────────┼────────┤                    ├────────┼────────┼────────┼────────┼────────┤
-// │        │  Play  │  Prev  │  Next  │        │                    │  Mute  │ VolDn  │ VolUp  │ BriDn  │ BriUp  │
+// │ CapsLk │  Play  │  Prev  │  Next  │        │                    │  Mute  │ VolDn  │ VolUp  │ BriDn  │ BriUp  │
 // └────────┴────────┴────────┼────────┼────────┼────────┐  ┌────────┼────────┼────────┼────────┴────────┴────────┘
-//                            │        │        │        │  │        │ >SYM<  │ >NUM<  │
+//                            │        │ >NAV<  │        │  │        │ >SYM<  │        │
 //                            └────────┴────────┴────────┘  └────────┴────────┴────────┘
             bindings = <
 &none    &kp F1    &kp F2    &kp F3    &kp F4    &kp F5             &kp F6    &kp F7    &kp F8    &kp F9    &kp F10    &none
 &none    &sk LGUI  &sk LALT  &sk LSHFT &sk LCTRL &none              &kp F11   &kp F12   &kp PSCRN &none     &none      &none
-&none    &none     &kp C_PP  &kp C_PREV &kp C_NEXT &none            &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &kp C_BRI_DN &kp C_BRI_UP &none
+&none    &kp CAPS  &kp C_PP  &kp C_PREV &kp C_NEXT &none            &kp C_MUTE &kp C_VOL_DN &kp C_VOL_UP &kp C_BRI_DN &kp C_BRI_UP &none
                              &trans    &trans    &trans             &trans    &trans    &trans
             >;
         };

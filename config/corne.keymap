@@ -137,7 +137,7 @@
 
         nav_layer {
 // ┌────────┬────────┬────────┬────────┬────────┐                    ┌────────┬────────┬────────┬────────┬────────┐
-// │        │        │ PrvTab │ NxtTab │        │                    │  PgUp  │  Home  │   ↑    │  End   │        │
+// │   F1   │   F2   │   F3   │   F4   │   F5   │                    │  PgUp  │  Home  │   ↑    │  End   │        │
 // ├────────┼────────┼────────┼────────┼────────┤                    ├────────┼────────┼────────┼────────┼────────┤
 // │ sk GUI │ sk ALT │ sk SFT │ sk CTL │        │                    │  PgDn  │   ←    │   ↓    │   →    │        │
 // ├────────┼────────┼────────┼────────┼────────┤                    ├────────┼────────┼────────┼────────┼────────┤
@@ -146,7 +146,7 @@
 //                            │        │ >NAV<  │        │  │        │        │        │
 //                            └────────┴────────┴────────┘  └────────┴────────┴────────┘
             bindings = <
-&none    &none     &none     &kp LC(LS(TAB)) &kp LC(TAB) &none      &kp PG_UP &kp HOME  &kp UP    &kp END   &none      &none
+&none    &kp F1    &kp F2    &kp F3    &kp F4    &kp F5             &kp PG_UP &kp HOME  &kp UP    &kp END   &none      &none
 &none    &sk LGUI  &sk LALT  &sk LSHFT &sk LCTRL &none              &kp PG_DN &kp LEFT  &kp DOWN  &kp RIGHT &none      &none
 &none    &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V) &kp LC(Y)         &kp TAB   &kp RET   &kp RET  &kp INS   &none      &none
                              &trans    &trans    &trans             &trans    &trans    &trans
@@ -229,7 +229,7 @@
 // ┌────────┬────────┬────────┬────────┬────────┐                    ┌────────┬────────┬────────┬────────┬────────┐
 // │ BT CLR │  BT 0  │  BT 1  │  BT 2  │  BT 3  │                    │        │        │        │        │        │
 // ├────────┼────────┼────────┼────────┼────────┤                    ├────────┼────────┼────────┼────────┼────────┤
-// │        │        │        │        │  BT 4  │                    │        │        │        │        │        │
+// │        │        │        │        │        │                    │        │        │        │        │        │
 // ├────────┼────────┼────────┼────────┼────────┤                    ├────────┼────────┼────────┼────────┼────────┤
 // │ bootld │        │        │        │  reset │                    │  reset │        │        │        │ bootld │
 // └────────┴────────┴────────┼────────┼────────┼────────┐  ┌────────┼────────┼────────┼────────┴────────┴────────┘
@@ -237,7 +237,7 @@
 //                            └────────┴────────┴────────┘  └────────┴────────┴────────┘
             bindings = <
 &none    &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3  &none  &none     &none     &none     &none      &none
-&none    &none     &none     &none     &none     &bt BT_SEL 4              &none  &none     &none     &none     &none      &none
+&none    &none     &none     &none     &none     &none                     &none  &none     &none     &none     &none      &none
 &none    &bootloader &none   &none     &none     &sys_reset                &sys_reset &none &none     &none     &bootloader &none
                              &trans    &trans    &trans                    &trans &trans    &trans
             >;

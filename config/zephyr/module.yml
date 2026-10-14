@@ -1,0 +1,9 @@
+# Makes this config repo a Zephyr module so the build picks up the custom
+# behavior under module/. Zephyr scans every west project, including the
+# manifest repo, for zephyr/module.yml.
+name: zmk-config-chocofi
+build:
+  cmake: module
+  kconfig: module/Kconfig
+  settings:
+    dts_root: module

@@ -11,14 +11,6 @@
     release-after-ms = <1500>;
 };
 
-// Keys that don't end caps word. Caps word only shifts A-Z, so these
-// pass through as pressed: hold shift with the Å/Ä/Ö combos to get the
-// capital. The default list's UNDERSCORE is `?` on the Swedish layout;
-// SV_MINUS matches both - and _ (shifted) here.
-&caps_word {
-    continue-list = <SV_MINUS BACKSPACE DELETE SV_A_RING SV_A_UMLAUT SV_O_UMLAUT>;
-};
-
 // Key positions (Corne shield numbering):
 // Positions 0, 11, 12, 23, 24, 35 are omitted — they map to the
 // outer sixth column which the Chocofi does not have (&none padding).
@@ -53,11 +45,22 @@
             tapping-term-ms = <200>;
             bindings = <&kp>, <&sk>;
         };
+        // Caps word with Swedish support. Stock &caps_word only shifts
+        // HID usages A-Z, so Å/Ä/Ö and - would stay lowercase; this
+        // in-repo variant (config/module/src/behavior_caps_word_ext.c) also shifts the
+        // keys in shift-list, which keep caps word active too. The
+        // default continue list's UNDERSCORE is `?` on the Swedish layout.
+        caps_word_ext: caps_word_ext {
+            compatible = "zmk,behavior-caps-word-ext";
+            #binding-cells = <0>;
+            continue-list = <BACKSPACE DELETE>;
+            shift-list = <SV_MINUS SV_A_RING SV_A_UMLAUT SV_O_UMLAUT>;
+        };
         td_shift: tap_dance_shift {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <200>;
-            bindings = <&sk LSHFT>, <&caps_word>, <&kp CAPS>;
+            bindings = <&sk LSHFT>, <&caps_word_ext>, <&kp CAPS>;
         };
     };
 

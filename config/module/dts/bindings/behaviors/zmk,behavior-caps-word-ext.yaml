@@ -1,0 +1,22 @@
+# Caps word with a configurable list of extra keys to shift.
+# Based on ZMK's zmk,behavior-caps-word (MIT, The ZMK Contributors).
+
+description: Caps word behavior with shift-list
+
+compatible: "zmk,behavior-caps-word-ext"
+
+include: zero_param.yaml
+
+properties:
+  continue-list:
+    type: array
+    required: true
+    description: Keys that keep caps word active without being shifted.
+  shift-list:
+    type: array
+    description: |
+      Non-alpha keys that get the caps word modifiers applied, matched on
+      usage page and ID only. Keys in this list also keep caps word active.
+  mods:
+    type: int
+    description: Modifiers to apply. Defaults to MOD_LSFT.

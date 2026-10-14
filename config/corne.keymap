@@ -46,10 +46,11 @@
             bindings = <&kp>, <&sk>;
         };
         // Caps word with Swedish support. Stock &caps_word only shifts
-        // HID usages A-Z, so Å/Ä/Ö and - would stay lowercase; this
-        // in-repo variant (config/module/src/behavior_caps_word_ext.c) also shifts the
-        // keys in shift-list, which keep caps word active too. The
-        // default continue list's UNDERSCORE is `?` on the Swedish layout.
+        // HID usages A-Z, so Å/Ä/Ö and - would stay lowercase. This
+        // in-repo variant (module/src/behavior_caps_word_ext.c) also
+        // shifts the keys in shift-list, which keep caps word active
+        // too. The stock continue list's UNDERSCORE is `?` on the
+        // Swedish layout, so it is not carried over.
         caps_word_ext: caps_word_ext {
             compatible = "zmk,behavior-caps-word-ext";
             #binding-cells = <0>;

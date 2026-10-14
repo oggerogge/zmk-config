@@ -11,6 +11,14 @@
     release-after-ms = <1500>;
 };
 
+// Keys that don't end caps word. Caps word only shifts A-Z, so these
+// pass through as pressed: hold shift with the Å/Ä/Ö combos to get the
+// capital. The default list's UNDERSCORE is `?` on the Swedish layout;
+// SV_MINUS matches both - and _ (shifted) here.
+&caps_word {
+    continue-list = <SV_MINUS BACKSPACE DELETE SV_A_RING SV_A_UMLAUT SV_O_UMLAUT>;
+};
+
 // Key positions (Corne shield numbering):
 // Positions 0, 11, 12, 23, 24, 35 are omitted — they map to the
 // outer sixth column which the Chocofi does not have (&none padding).

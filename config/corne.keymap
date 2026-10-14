@@ -44,10 +44,12 @@
         // Tap = sticky mod, hold = plain mod. A bare &sk held without
         // pressing another key (e.g. shift-click) stays active for
         // release-after-ms after release; this releases it immediately.
+        // Tap-preferred so rolling from one mod into the next still taps
+        // both and chains them; only holding past tapping-term is a hold.
         skh: sticky_key_hold {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
-            flavor = "hold-preferred";
+            flavor = "tap-preferred";
             tapping-term-ms = <200>;
             bindings = <&kp>, <&sk>;
         };

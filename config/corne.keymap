@@ -5,9 +5,10 @@
 
 // Release a sticky modifier right after the next key press instead of
 // after its release, so rolling into the following key doesn't also
-// get shifted.
+// get shifted. Drop it if no key is pressed within 1.5 s.
 &sk {
     quick-release;
+    release-after-ms = <1500>;
 };
 
 // Key positions (Corne shield numbering):

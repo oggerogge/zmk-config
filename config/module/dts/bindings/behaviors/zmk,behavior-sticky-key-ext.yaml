@@ -1,0 +1,28 @@
+# Sticky key that releases on key-up after a long hold.
+# Based on ZMK's zmk,behavior-sticky-key (MIT, The ZMK Contributors).
+
+description: Sticky key behavior with hold-release-ms
+
+compatible: "zmk,behavior-sticky-key-ext"
+
+include: one_param.yaml
+
+properties:
+  bindings:
+    type: phandles
+    required: true
+  release-after-ms:
+    type: int
+    required: true
+  hold-release-ms:
+    type: int
+    description: |
+      If the key is held at least this long without another key being
+      pressed, release it on key-up instead of keeping it sticky.
+      0 (default) keeps stock sticky key behavior.
+  quick-release:
+    type: boolean
+  lazy:
+    type: boolean
+  ignore-modifiers:
+    type: boolean

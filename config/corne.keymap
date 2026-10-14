@@ -3,6 +3,13 @@
 #include <dt-bindings/zmk/bt.h>
 #include <locale/keys_sv.h>
 
+// Release a sticky modifier right after the next key press instead of
+// after its release, so rolling into the following key doesn't also
+// get shifted.
+&sk {
+    quick-release;
+};
+
 // Key positions (Corne shield numbering):
 // Positions 0, 11, 12, 23, 24, 35 are omitted — they map to the
 // outer sixth column which the Chocofi does not have (&none padding).
@@ -25,10 +32,6 @@
 
 / {
     behaviors {
-        sk {
-            tapping-term-ms = <200>;
-            release-after-ms = <1000>;
-        };
         // Tap = sticky mod, hold = plain mod. A bare &sk held without
         // pressing another key (e.g. shift-click) stays active for
         // release-after-ms after release; this releases it immediately.

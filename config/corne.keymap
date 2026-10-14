@@ -180,18 +180,18 @@
         nav_layer {
             display-name = "NAV";
 // ┌────────┬────────┬────────┬────────┬────────┐                    ┌────────┬────────┬────────┬────────┬────────┐
-// │   F1   │   F2   │   F3   │   F4   │   F5   │                    │  PgUp  │  Home  │   ↑    │  End   │ PrtSc  │
+// │   F1   │   F2   │   F3   │   F4   │   F5   │                    │  PgUp  │  Home  │   ↑    │  End   │  Ins   │
 // ├────────┼────────┼────────┼────────┼────────┤                    ├────────┼────────┼────────┼────────┼────────┤
-// │ kp GUI │skh ALT │skh SFT │skh CTL │  F12   │                    │  PgDn  │   ←    │   ↓    │   →    │        │
+// │ kp GUI │skh ALT │skh SFT │skh CTL │  F12   │                    │  PgDn  │   ←    │   ↓    │   →    │  F11   │
 // ├────────┼────────┼────────┼────────┼────────┤                    ├────────┼────────┼────────┼────────┼────────┤
-// │  Undo  │  Cut   │  Copy  │ Paste  │  Redo  │                    │  Tab   │        │        │  Ins   │  F11   │
+// │  Undo  │  Cut   │  Copy  │ Paste  │  Redo  │                    │  Tab   │        │        │        │ PrtSc  │
 // └────────┴────────┴────────┼────────┼────────┼────────┐  ┌────────┼────────┼────────┼────────┴────────┴────────┘
 //                            │        │ >NAV<  │        │  │        │        │        │
 //                            └────────┴────────┴────────┘  └────────┴────────┴────────┘
             bindings = <
-&none    &kp F1    &kp F2    &kp F3    &kp F4    &kp F5             &kp PG_UP &kp HOME  &kp UP    &kp END   &kp PSCRN  &none
-&none    &kp LGUI  &skh LALT LALT  &skh LSHFT LSHFT &skh LCTRL LCTRL &kp F12   &kp PG_DN &kp LEFT  &kp DOWN  &kp RIGHT &none      &none
-&none    &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V) &kp LC(Y)         &kp TAB   &none     &none     &kp INS   &kp F11    &none
+&none    &kp F1    &kp F2    &kp F3    &kp F4    &kp F5             &kp PG_UP &kp HOME  &kp UP    &kp END   &kp INS    &none
+&none    &kp LGUI  &skh LALT LALT  &skh LSHFT LSHFT &skh LCTRL LCTRL &kp F12   &kp PG_DN &kp LEFT  &kp DOWN  &kp RIGHT &kp F11    &none
+&none    &kp LC(Z) &kp LC(X) &kp LC(C) &kp LC(V) &kp LC(Y)         &kp TAB   &none     &none     &none     &kp PSCRN  &none
                              &trans    &trans    &trans             &trans    &trans    &trans
             >;
         };
